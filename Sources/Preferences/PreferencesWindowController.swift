@@ -55,6 +55,10 @@ public final class PreferencesWindowController: NSWindowController {
 				return preferencePanes.count <= 1 ? .visible : .hidden
 			}
 		}()
+		
+		if #available(OSX 11.0, *) {
+			window.toolbarStyle = .preference
+		}
 
 		tabViewController.isAnimated = animated
 		tabViewController.configure(preferencePanes: preferencePanes, style: style)
